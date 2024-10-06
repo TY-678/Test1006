@@ -18,6 +18,7 @@ Test 1
     Should Be Equal    ${sum}    ${check_result}
 
 Test Fail
+    [tags]		robot:skip
     Fail    msg=for test parse
 
 Test 2
