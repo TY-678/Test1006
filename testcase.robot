@@ -17,6 +17,9 @@ Test 1
 
     Should Be Equal    ${sum}    ${check_result}
 
+Test Fail
+    Fail    msg=for test parse
+
 Test 2
     ${a}=    Evaluate    int(0)
     ${b}=    Evaluate    int(-10)
