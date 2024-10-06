@@ -19,4 +19,31 @@ jobs:
         run: poetry install
 
       - name: Run Robot Framework Tests
-        run: poetry run robot ./
+        run: poetry run robot --outputdir=results tests/ ./
+
+      - name: Parse Test Results
+        run: |
+          python -c "
+import xml.etree.ElementTree as ET
+import sys
+
+
+tree = ET.parse('results/output.xml')
+root = tree.getroot()
+
+
+total_tests = int(root.attrib['tests'])
+failed_tests = int(root.attrib['failures'])
+
+if failed_tests > 0:
+    print(f'Total Tests: {total_tests}, Failed Tests: {failed_tests}')
+    sys.exit(1)
+else:
+    print('All tests passed!')
+"
+
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: robot-results
+          path: results/
