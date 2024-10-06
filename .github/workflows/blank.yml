@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  test:  New Tese
+  test:
     runs-on: self-hosted
     steps:
       - name: Checkout code
