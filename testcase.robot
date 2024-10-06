@@ -9,10 +9,19 @@ Library    ./TestMath.py
 
 *** Test Cases ***
 Test 1
-    ${a}=    Evaluate    int(1)
+    ${a}=    Evaluate    int(100)
     ${b}=    Evaluate    int(100)
 
     ${sum}=    Get Sum    ${a}    ${b}
-    ${check_result}=    Evaluate    int(101)
+    ${check_result}=    Evaluate    int(200)
+
+    Should Be Equal    ${sum}    ${check_result}
+
+Test 2
+    ${a}=    Evaluate    int(0)
+    ${b}=    Evaluate    int(-10)
+
+    ${sum}=    Get Sum    ${a}    ${b}
+    ${check_result}=    Evaluate    int(-10)
 
     Should Be Equal    ${sum}    ${check_result}
