@@ -9,6 +9,7 @@ Library    ./TestMath.py
 
 *** Test Cases ***
 Test 1
+    [Tags]    test
     ${a}=    Evaluate    int(100)
     ${b}=    Evaluate    int(100)
 
@@ -22,6 +23,7 @@ Test Fail
     Fail    msg=for test parse
 
 Test 2
+    [Tags]    test
     ${a}=    Evaluate    int(0)
     ${b}=    Evaluate    int(-10)
 

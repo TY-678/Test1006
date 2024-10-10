@@ -166,3 +166,6 @@ cython_debug/
 *.html
 *.xml
 test.*
+
+# tempfile
+.DS_Store

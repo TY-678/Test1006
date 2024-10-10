@@ -19,7 +19,7 @@ jobs:
         run: poetry install
 
       - name: Run Robot Framework Tests
-        run: poetry run robot --outputdir=results ./
+        run: poetry run robot -i test --outputdir=results ./
 
       - name: Parse Test Results
         run: poetry run python parse_results.py
